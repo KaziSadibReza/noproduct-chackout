@@ -9,3 +9,17 @@
 wp-content/themes/*                        
 !wp-content/themes/kadence-child/
 !wp-content/themes/kadence-child/*
+!wp-content/themes/kadence-child/assets/
+!wp-content/themes/kadence-child/assets/*
+!wp-content/themes/kadence-child/assets/js/
+!wp-content/themes/kadence-child/assets/js/*
+!wp-content/themes/kadence-child/assets/css/
+!wp-content/themes/kadence-child/assets/css/*
+!wp-content/themes/kadence-child/includes/
+!wp-content/themes/kadence-child/includes/*
+!wp-content/themes/kadence-child/templates/
+!wp-content/themes/kadence-child/templates/*
+!wp-content/themes/kadence-child/woocommerce/
+!wp-content/themes/kadence-child/woocommerce/*
+!wp-content/themes/kadence-child/woocommerce/checkout/
+!wp-content/themes/kadence-child/woocommerce/checkout/*
