@@ -58,7 +58,7 @@ function update_cart_price_from_custom_amount($cart) {
 
 /**
  * @since 1.0.0
- * Handle AJAX request to update the cart amount
+ * Handle AJAX request to update the cart amount and product price
  */
 add_action('wp_ajax_update_cart_amount', 'handle_update_cart_amount');
 add_action('wp_ajax_nopriv_update_cart_amount', 'handle_update_cart_amount');
@@ -90,6 +90,7 @@ function handle_update_cart_amount() {
 }
 
 /**
+ * @since 1.0.0
  * Save custom checkout fields to order
  */
 add_action('woocommerce_checkout_create_order', 'save_custom_checkout_fields', 10, 2);
@@ -103,7 +104,8 @@ function save_custom_checkout_fields($order, $data) {
 }
 
 /**
- * Display custom fields in order admin panel
+ * @since 1.0.0
+ * Display custom fields in woocommerce order admin panel
  */
 add_action('woocommerce_admin_order_data_after_billing_address', 'display_custom_fields_in_admin', 10, 1);
 function display_custom_fields_in_admin($order) {
@@ -123,7 +125,8 @@ function display_custom_fields_in_admin($order) {
 }
 
 /**
- * Add custom fields to order emails
+ * @since 1.0.0
+ * Display username and reference fields in the order emails
  */
 add_action('woocommerce_email_order_details', 'add_custom_fields_to_emails', 20, 4);
 function add_custom_fields_to_emails($order, $sent_to_admin, $plain_text, $email) {    
@@ -165,33 +168,4 @@ function add_custom_fields_to_emails($order, $sent_to_admin, $plain_text, $email
         echo '</table>';
         echo '</div>';
     }
-}
-
-/**
- * Add custom fields to customer order view
- */
-add_action('woocommerce_order_details_after_order_table', 'display_custom_fields_in_order_view', 10, 1);
-function display_custom_fields_in_order_view($order) {
-    echo '<section class="custom-order-details">';
-    echo '<h2>' . __('TikTok Order Details', 'woocommerce') . '</h2>';
-    echo '<table class="woocommerce-table shop_table custom_details">';
-    
-    $reference_number = $order->get_meta('_reference_number');
-    if ($reference_number) {
-        echo '<tr>';
-        echo '<th>' . __('Reference Number:', 'woocommerce') . '</th>';
-        echo '<td>' . esc_html($reference_number) . '</td>';
-        echo '</tr>';
-    }
-    
-    $custom_username = $order->get_meta('_custom_username');
-    if ($custom_username) {
-        echo '<tr>';
-        echo '<th>' . __('TikTok Username:', 'woocommerce') . '</th>';
-        echo '<td>' . esc_html($custom_username) . '</td>';
-        echo '</tr>';
-    }
-    
-    echo '</table>';
-    echo '</section>';
 }

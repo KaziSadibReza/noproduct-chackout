@@ -31,6 +31,9 @@ function kadence_child_enqueue_scripts() {
 add_action('wp_enqueue_scripts', 'kadence_child_enqueue_scripts');
 add_action( 'wp_enqueue_scripts', 'kadence_child_enqueue_styles' );
 
+
+
+
 /**
  * @since 1.0.0
  * Remove redirect to cart page when adding a product to the cart
