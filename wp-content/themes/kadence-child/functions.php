@@ -61,7 +61,7 @@ include_once( 'includes/product-functions.php' );
 add_action( 'woocommerce_cart_calculate_fees', 'add_fixed_delivery_fee' );
 function add_fixed_delivery_fee( $cart ) {
     if ( is_admin() && ! defined('DOING_AJAX') ) return;
-    $fee_name   = 'Delivery Fee';
+    $fee_name   = 'Livraison';
     $fee_amount = 5; // $5 fee
     $cart->add_fee( $fee_name, $fee_amount );
 }
@@ -72,3 +72,9 @@ add_action( 'woocommerce_checkout_before_customer_details', 'custom_add_amount_f
 function custom_add_amount_field() {
     include get_stylesheet_directory() . '/templates/amount-reference-username-field.php';
 }
+
+/**
+ * @since 1.0.0
+ * Order details shortcode functions
+ */
+include_once( 'includes/order-details-functions.php' );

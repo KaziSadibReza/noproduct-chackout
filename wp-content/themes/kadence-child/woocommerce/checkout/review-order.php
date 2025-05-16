@@ -21,7 +21,7 @@ defined( 'ABSPATH' ) || exit;
     <tfoot>
         <!-- Change the SubTotal text start -->
         <tr class="cart-subtotal">
-            <th><?php esc_html_e( 'Total amount', 'woocommerce' ); ?></th>
+            <th><?php esc_html_e( 'Montant total', 'woocommerce' ); ?></th>
             <td><?php wc_cart_totals_subtotal_html(); ?></td>
         </tr>
         <!-- Change the SubTotal text end  -->
